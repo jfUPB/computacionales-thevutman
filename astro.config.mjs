@@ -46,5 +46,5 @@ export default defineConfig({
 		}),
 	],
 	site: 'https://jfUPB.github.io',
-	base: 'template2025-10',
+	base: 'computacionales-2025-10-computacionales-template2025-10',
 });
