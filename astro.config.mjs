@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Sistemas Físicos Interactivos 1',
+			title: 'Sistemas Computacionales',
 			defaultLocale: 'root',
 			locales: {
 			  root: { label: 'Español', lang: 'es-ES' },
