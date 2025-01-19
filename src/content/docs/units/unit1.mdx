@@ -9,7 +9,27 @@ import unidades from '../../activities/unidades.json';
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 
+## Introducción
+
+El objetivo de esta unidad es que puedas comprender la arquitectura de un computador, en este caso el computador Hack, 
+y su lenguaje ensamblador para desarrollar programas simples que interactúen con el hardware, incluyendo la 
+manipulación de memoria, operaciones aritmético-lógicas, control de flujo y manejo básico de entrada/salida.
+
+Esta unidad tiene un total de 16 actividades. Se estima un tiempo de 30 minutos por actividad; 
+sin embargo, dependiendo de tu ritmo de trabajo, dificultades, saberes previos o nivel de interés 
+algunas actividades pueden tomarte un poco más de tiempo.
+
+
 ## ¿Qué aprenderás en esta unidad?
+
+- Comprender la arquitectura de un computador.
+- Conocer el lenguaje ensamblador.
+- Desarrollar programas simples que interactúen con el hardware.
+- Manipular memoria.
+- Realizar operaciones aritmético-lógicas.
+- Controlar el flujo de un programa.
+- Manejar la entrada y salida de datos.
+
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -23,6 +43,8 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Investigación
 
+Ahora vas a indar en el funcionamiento de la CPU Hack y su lenguaje ensamblador.
+
 {unit.actividades
   .filter(act => act.fase === "seek")
   .map(act => (
@@ -35,6 +57,8 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Aplicación
 
+Ahora vas a aplicar lo que has aprendido en la investigación y a resolver problemas prácticos.
+
 {unit.actividades
   .filter(act => act.fase === "apply")
   .map(act => (
@@ -46,6 +70,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 }
 
 ## Consolidación y matacognión
+
+Vas a reflexionar sobre lo que has aprendido y a consolidar tus conocimientos. Es importante que te autoevalúes y 
+que reflexiones sobre tu proceso de aprendizaje. Además, vas a tratar de conectar lo que has aprendido con tus 
+intereses y el perfil profesional que deseas alcanzar.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
