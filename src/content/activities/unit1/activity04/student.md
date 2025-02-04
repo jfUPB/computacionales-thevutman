@@ -65,7 +65,3 @@
 
 3. **`D;JGT`** → Si `D > 0`, salta a la dirección almacenada en `A`.  
    - Binario: `1110001100000001`  
-
----
-
-Esta estructura clara y concisa cubre todos los puntos requeridos en la actividad. ¿Quieres que lo adapte más? 😊  
