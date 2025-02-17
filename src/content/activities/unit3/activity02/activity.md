@@ -56,7 +56,7 @@ int main() {
 }
 ```
 
-- Predicción: antes de ejecutar el programa, predice la salida de cada función y explica el motivo.
+- Predicción: antes de ejecutar el programa, predice la salida de cada función y explica el resultado.
 - ¿Qué diferencias observas en el comportamiento de a, b y c tras cada llamada?
 - ¿Por qué ocurre esta diferencia?
 

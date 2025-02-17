@@ -1,6 +1,6 @@
 #### Hola Objeto: creación de un objeto en el stack
 
-Este experimento es fundamental porque conecta el concepto fundamental de POO con este curso. Tómate el tiempo necesario para entenderlo y realizarlo. NO OLVIDES usar el depurador, es la clave para entender cómo funciona la memoria en C++.
+Este experimento es fundamental porque conecta el concepto fundamental de POO (objetos) con este curso. Tómate el tiempo necesario para entenderlo y realizarlo. NO OLVIDES usar el depurador, es la clave para entender cómo funciona la memoria en C++.
 
 Encontrarás preguntas en el enunciado y en la entrega. Ve respondiendo las preguntas a medida que avanzas en el experimento.
 

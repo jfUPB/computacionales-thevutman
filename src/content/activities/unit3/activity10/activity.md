@@ -47,7 +47,8 @@ int main() {
 
 **Entrega**:
 
-- ¿Qué ocurre después de llamar a la función `cambiarNombre`? ¿Por qué aparece el mensaje "Destructor: Punto cambiado(70, 80) destruido."? ¿Por qué luego `original` sigue existiendo?
+- ¿Qué ocurre después de llamar a la función `cambiarNombre`? ¿Por qué aparece el mensaje `Destructor: Punto cambiado(70, 80) destruido.`? 
+- ¿Por qué `original` sigue existiendo luego de llamar `cambiarNombre`?
 - ¿En qué parte del mapa de memoria se encuentra `original` y en qué parte se encuentra `p`? ¿Son el mismo objeto? (recuerda 
 usar siempre el depurador para responder estas preguntas).
 - Modifica la función `cambiarNombre`:

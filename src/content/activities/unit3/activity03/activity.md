@@ -7,7 +7,7 @@ Piensa en el mapa de memoria como un gran arreglo donde cada sección tiene un p
 
 ``` bash
 +-------------------------------+
-|       Segmento de Código      |
+|       Segmento de código      |
 |   (instrucciones, funciones)  |
 +-------------------------------+
 | Variables globales y estáticas|
@@ -24,7 +24,7 @@ Piensa en el mapa de memoria como un gran arreglo donde cada sección tiene un p
 A continuación, te describiré los segmentos de memoria más comunes en un programa C++:
 
 
-1. Segmento de Código (o Text). Es la zona de memoria donde se encuentra el código ejecutable del programa, es decir, las instrucciones compiladas. Se caracteriza porque es de solo lectura en muchos sistemas para prevenir modificaciones accidentales o maliciosas. Contiene todas las funciones, incluyendo main(), y cualquier otra función definida en el programa.
+1. Segmento de código (o Text). Es la zona de memoria donde se encuentra el código ejecutable del programa, es decir, las instrucciones compiladas. Se caracteriza porque es de solo lectura en muchos sistemas para prevenir modificaciones accidentales o maliciosas. Contiene todas las funciones, incluyendo main(), y cualquier otra función definida en el programa.
 
 2. Variables globales y estáticas: aquí se almacenan las variables globales y estáticas que han sido inicializadas explícitamente y 
 también las que no han sido inicializadas.

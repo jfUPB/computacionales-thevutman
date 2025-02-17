@@ -4,9 +4,9 @@
 
 Crea una clase llamada Contador que tenga:
 
-Un miembro de instancia valor que se incremente cada vez que se llame a un método incrementar().
-Un miembro estático total que cuente cuántos objetos de la clase se han creado.
-Explora cómo se gestionan estas variables (estáticas vs. no estáticas) en la memoria, y utiliza el depurador para inspeccionar sus valores y direcciones.
+- Un miembro de instancia, `valor`, que se incremente cada vez que se llame a un método `incrementar()`.  
+- Un miembro estático, `total`, que cuente cuántos objetos de la clase se han creado.  
+- Explora cómo se gestionan estas variables (estáticas vs. no estáticas) en la memoria, y utiliza el depurador para inspeccionar sus valores y direcciones.  
 
 Pasos:
 
