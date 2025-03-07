@@ -8,8 +8,37 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 
+
+En esta unidad vas a aprender sobre estructuras de datos. Las estructuras de datos son formas de 
+organizar y almacenar datos en una computadora para que puedan ser utilizados de manera eficiente. 
+Inicialmente, vamos a analizar juntos cómo se implementa la estructura de datos llamada lista enlazada. 
+Luego analizaremos cómo aplicarla a un problema concreto relacionado con la programación creativa. 
+Finalmente, te voy a proponer que transfieras lo aprendido a una nueva estructura de datos llamada cola. 
+Implementarás la funcionalidad de la cola y aplicarás esta estructura de datos a la solución de un 
+problema de programación creativa.
+
+El lenguaje que estamos usando para explorar los conceptos en este curso es C++. Este lenguaje cuanta 
+en su biblioteca estándar con la implementación de listas enlazadas y colas. Sin embargo, en este curso 
+vamos a implementar estas estructuras de datos desde cero para que puedas entender cómo funcionan y 
+cómo se pueden aplicar a problemas concretos. Adicionalmente, vas a conocer un framework de programación 
+creativa llamado openFrameworks que te permitirá aplicar los conceptos aprendidos en la solución de
+problemas creativos.
+
 
 ## ¿Qué aprenderás en esta unidad?
+
+En esta unidad aprenderás a:
+
+- Implementar una lista enlazada en C++.
+- Aplicar una lista enlazada a un problema de programación creativa.
+- Implementar una cola en C++.
+- Aplicar una cola a un problema de programación creativa.
+
+En esta fase de la unidad, te voy a mostrar cómo instalar y configurar openFrameworks en tu computadora. 
+Además, analizarás un ejemplo de programación creativa que utiliza openFrameworks y una lista enlazada, 
+pero usando la implementación de la biblioteca estándar de C++. La idea es que te familiarices con 
+openFrameworks y con la programación creativa antes de implementar la lista enlazada desde cero.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -23,6 +52,11 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Investigación
 
+En esta fase, vamos a analizar juntos cómo se implementa una lista enlazada en C++ y cómo se puede 
+aplicar a un problema de programación creativa; sin embargo, esta vez no usaremos la implementación de la 
+biblioteca estándar de C++. La idea es que entiendas cómo funciona una lista enlazada y cómo se puede
+aplicar a un problema concreto.
+
 {unit.actividades
   .filter(act => act.fase === "seek")
   .map(act => (
@@ -35,6 +69,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Aplicación
 
+En esta fase, vas a implementar una cola en C++ y aplicarla a un problema de programación creativa.  
+En este punto lo que busco es que transfieras lo aprendido sobre listas enlazadas a una nueva estructura 
+de datos.
+
 {unit.actividades
   .filter(act => act.fase === "apply")
   .map(act => (
@@ -46,6 +84,9 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 }
 
 ## Consolidación y metacognición
+
+En esta fase, vas a revisar y consolida lo aprendido en esta unidad, vas autoevaluar tu proceso 
+de aprendizaje y te pediré que ayudes a mejorar el diseño de la unidad para futuros estudiantes.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
