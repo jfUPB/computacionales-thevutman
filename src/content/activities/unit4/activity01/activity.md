@@ -15,5 +15,8 @@ modificación al código que te mostraré aplicando algunos conceptos aprendidos
 computadores de la Universidad tenemos licencia para la versión profesional. Si quieres 
 [instalar Visual Studio](https://visualstudio.microsoft.com/) en tu computadora, vas a tener que instalar 
 la versión Community. ESTE PROCESO LO DEBES HACER POR FUERA DE LA SESIÓN DE TRABAJO porque puede tardar 
-mucho tiempo. Mi recomendación 
-es que uses las computadoras de la Universidad. 
+mucho tiempo. Mi recomendación es que uses las computadoras de la Universidad. 
+- En las computadoras de la Universidad ya tienes instalado el compilador de C++; sin embargo, es posible 
+que no lo tengas en tu computadora. De nuevo, te recomiendo que uses las computadoras de la Universidad para 
+que aproveches el tiempo de la sesión de trabajo. No obstante, si quieres instalar el compilador en tu
+computadora, puedes hacerlo siguiendo [este tutorial](https://www.youtube.com/watch?v=3jEXv5T0v2Q).
