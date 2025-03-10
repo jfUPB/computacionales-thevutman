@@ -11,5 +11,5 @@
 - ¿Cómo se relaciona lo que aprendiste en esta unidad con otras áreas de la programación o de tu carrera?  
 - ¿Qué aprendizajes de esta unidad te servirán en futuros proyectos?
 
-📤 **Enunciado**: responde de maneara reflexiva y con autocrítica a las preguntas planteadas en el enunciado.
+📤 **Entrega**: responde de maneara reflexiva y con autocrítica a las preguntas planteadas en el enunciado.
 
