@@ -8,8 +8,8 @@ con openFrameworks.
 
 🎯 **Enunciado**: te mostraré los pasos para instalar y configurar openFrameworks en tu computadora.  
 luego analizaremos un ejemplo de programación creativa que utiliza openFrameworks y una lista enlazada, 
-pero usando la implementación de la biblioteca estándar de C++. Finalmente, te pediré que realices una 
-modificación al código que te mostraré aplicando algunos conceptos aprendidos en las unidades anteriores.
+pero usando la implementación de la biblioteca estándar de C++. Finalmente, te pediré que analices 
+algunas partes del programa y que elabores otras con dibujos.
 
 
 🛠️ **Instalación**: para instalar openFrameworks en tu computadora, sigue los siguientes pasos:
@@ -39,7 +39,7 @@ projectGenerator.exe.
 sea Visual Studio. Haz clic en el botón de `Generate`.
 - Si todo sale bien deberías ver un mensaje que dice que el proyecto se generó correctamente. Haz clic en el
 botón de `Open in IDE`.
-- Al abrir el proyecto por primera vez verás una ventaja emergente que te indicará que es necesario actualizar 
+- Al abrir el proyecto por primera vez verás una ventana emergente que te indicará que es necesario actualizar 
 el proyecto. Haz clic en el botón de `OK`. Esta acción actualizará la configuración del proyecto para que se 
 pueda compilar con la versión de Windows SDK y el compilador de Visual Studio que tienes instalado.
 - Haz clic en el botón de `Local Windows Debugger` para compilar y ejecutar el proyecto. Si todo está bien,

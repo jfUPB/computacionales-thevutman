@@ -4,7 +4,7 @@
 organizar las diferentes partes, nodos, que componen a la serpiente. Usaste la 
 implementación de la lista enlazada que trae la biblioteca estándar de C++. En 
 esta actividad explorarás una implementación de la lista enlazada. El objetivo 
-de esto es que entiendas cómo funciona la lista enlazada y cómo se podría implementa.
+de esto es que entiendas cómo funciona la lista enlazada y cómo se podría implementar.
 Nota que digo cómo se podría implementar, ya que no es la única forma de hacerlo.
 
 - Lo primero que harás será generar un nuevo proyecto con el generado 
