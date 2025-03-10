@@ -6,13 +6,13 @@ que aún no has visto y que se llama lista enlazada. No te preocupes, en la sigu
 actividad te mostraré cómo implementarla. Por ahora, la idea es que te familiarices
 con openFrameworks.
 
-**Enunciado**: te mostraré los pasos para instalar y configurar openFrameworks en tu computadora.  
+🎯 **Enunciado**: te mostraré los pasos para instalar y configurar openFrameworks en tu computadora.  
 luego analizaremos un ejemplo de programación creativa que utiliza openFrameworks y una lista enlazada, 
 pero usando la implementación de la biblioteca estándar de C++. Finalmente, te pediré que realices una 
 modificación al código que te mostraré aplicando algunos conceptos aprendidos en las unidades anteriores.
 
 
-**Instalación**: para instalar openFrameworks en tu computadora, sigue los siguientes pasos:
+🛠️ **Instalación**: para instalar openFrameworks en tu computadora, sigue los siguientes pasos:
 
 - Lo primero que debes verificar es que tengas instalado Visual Studio. Ten presente que en las 
 computadoras de la Universidad tenemos licencia para la versión profesional. Si quieres 
@@ -24,7 +24,7 @@ que no lo tengas en tu computadora. De nuevo, te recomiendo que uses las computa
 que aproveches el tiempo de la sesión de trabajo. No obstante, si quieres instalar el compilador en tu
 computadora, puedes hacerlo siguiendo [este tutorial](https://youtu.be/yIb4icSHfBY?si=R5cR_6E3mf2hc1ok).
 - Descarga openFrameworks desde [este enlace](https://openframeworks.cc/download/). En este punto 
-seleccionaras Windows y Visual Studio. En una vez descargado el archivo, descomprímelo en el directorio 
+seleccionaras Windows y Visual Studio. En una vez descargado el archivo, descomprime en el directorio 
 de Documentos de tu computadora. No lo pongas en el escritorio.
 - Abre el archivo emptyExample.sln que se encuentra en la carpeta `apps/myApps/emptyExample` de la carpeta
 donde descomprimiste openFrameworks.
@@ -153,6 +153,115 @@ public:
 - Ejecuta el programa y explora su funcionamiento. Prueba las teclas `a`, `r`, `c` y `s` para añadir,
 quitar, limpiar y guardar una captura de pantalla, respectivamente.
 
+Te dejo el código completo:
+
+ofApp.h
+``` cpp
+#pragma once
+
+#include "ofMain.h"
+#include <list>
+
+class ofApp : public ofBaseApp {
+public:
+    std::list<glm::vec2> snake;
+    float backgroundHue;
+
+    void setup();
+    void update();
+    void draw();
+    void keyPressed(int key);
+};
+
+```
+
+ofApp.cpp:
+
+``` cpp
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup() {
+    backgroundHue = 0;
+
+    // Inicializa la serpiente con varios nodos en el centro
+    for (int i = 0; i < 20; i++) {
+        snake.emplace_back(ofGetWidth() / 2, ofGetHeight() / 2);
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::update() {
+
+    glm::vec2 target = glm::vec2(ofGetMouseX(), ofGetMouseY());
+    float interpolationFactor = 0.2;  // controla la velocidad de movimiento (0-1)
+
+    for (auto& pos : snake) {
+        pos = glm::mix(glm::vec3(pos, 0.0f), glm::vec3(target, 0.0f), 0.2); // Se mueve gradualmente
+        target = pos;  // Cada nodo sigue al anterior
+    }
+
+    backgroundHue = fmod(backgroundHue + 0.1, 255);
+}
+
+//--------------------------------------------------------------
+void ofApp::draw() {
+    // Fondo dinámico con gradiente
+    ofColor color1 = ofColor::fromHsb(backgroundHue, 150, 240);
+    ofColor color2 = ofColor::fromHsb(fmod(backgroundHue + 128, 255), 150, 240);
+    ofBackgroundGradient(color1, color2, OF_GRADIENT_LINEAR);
+
+    
+    // curva suave conectando los nodos
+    if (snake.size() > 1) {
+        ofMesh mesh;
+        mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+        int index = 0;
+        for (const auto& pos : snake) {
+            float hue = ofMap(index++, 0, snake.size() - 1, 0, 255);
+            mesh.addColor(ofColor::fromHsb(hue, 200, 255));
+            mesh.addVertex(glm::vec3(pos, 0.0f));
+        }
+        ofSetLineWidth(2);
+        mesh.draw();
+    }
+    
+    // Círculos con tamaño y color variable   
+    int index = 0;
+    ofNoFill();
+    ofSetLineWidth(2);
+    for (const auto& pos : snake) {
+        float hue = ofMap(index, 0, snake.size() - 1, 0, 255);
+        ofSetColor(ofColor::fromHsb(hue, 220, 255));
+        float radius = ofMap(index++, 0, snake.size() - 1, 20, 5);
+        ofDrawCircle(pos.x, pos.y, radius);
+    }
+       
+}
+
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key) {
+    if (key == 'c') {
+        snake.clear();
+    }
+    else if (key == 'a') {
+        snake.emplace_back(ofRandomWidth(), ofRandomHeight());
+	}
+	else if (key == 'r') {
+        if (!snake.empty()) {
+            snake.pop_back();
+        }
+		
+	}
+	else if (key == 's') {
+		ofSaveFrame();
+	}
+}
+
+```
+
+Una captura de pantalla del resultado esperado es la siguiente:
+
 ![resultado](../../../../assets/u4a1.png)
 
 
@@ -209,10 +318,11 @@ Una lista enlazada es una estructura de datos que se compone de nodos. Cada nodo
 siguiente nodo. En este caso, cada nodo tiene una posición en el plano y una referencia al siguiente nodo. La serpiente
 se mueve siguiendo la posición del nodo anterior. El primer nodo sigue al mouse y los demás nodos siguen al nodo anterior.
 
-**Entrega**: 
+📤 **Entrega**: 
 
 1. Vas a suponer que la lista tiene 5 nodos, cada nodo tiene una posición en el plano. Realiza 
-un dibujo que represente la lista enlazada. No olvides qué es una lista enlazada.
+un dibujo que represente la lista enlazada. No olvides qué es una lista enlazada. Inserta un nodo, 
+elimina un nodo y limpia la lista.
 
 En el código que te mostré: 
 
@@ -222,7 +332,3 @@ En el código que te mostré:
 5. ¿Cómo se eliminan nodos de la lista?
 6. ¿Cómo se limpia la lista?
 7. ¿Cómo se verifica si la lista está vacía?
-
-
-
-
