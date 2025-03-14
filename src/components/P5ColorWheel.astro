@@ -1,0 +1,54 @@
+---
+---
+<div class="p5-container"></div>
+
+<script>
+function waitForP5(callback) {
+  if (window.p5) {
+    console.log("p5.js ya está disponible.");
+    callback();
+  } else {
+    console.log("Esperando p5.js...");
+    const checkP5 = setInterval(() => {
+      if (window.p5) {
+        clearInterval(checkP5);
+        console.log("p5.js finalmente disponible.");
+        callback();
+      }
+    }, 100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  waitForP5(() => {
+    console.log("Ejecutando la simulación del sistema HSB...");
+    new p5((p) => {
+      p.setup = function () {
+        let canvas = p.createCanvas(480, 550);
+        canvas.parent(document.querySelector(".p5-container"));
+        p.colorMode(p.HSB, 255);
+      };
+
+      p.draw = function () {
+        p.background(30);
+        p.fill(255);
+        p.text("Simulación de color HSB", 50, 50);
+      };
+    });
+  });
+});
+</script>
+
+<style>
+  .p5-container {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+</style>
