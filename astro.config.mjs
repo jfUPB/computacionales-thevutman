@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
 import starlight from '@astrojs/starlight';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
@@ -51,7 +50,6 @@ export default defineConfig({
 				},
 			],
 		}),
-		mdx(),
 	],
 	site: 'https://jfUPB.github.io',
 	base: 'computacionales-2025-10-computacionales-template2025-10',
