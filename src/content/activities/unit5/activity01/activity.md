@@ -1,7 +1,7 @@
 #### Exploraremos los conceptos desde el arte generativo
 
-🎯 **Enunciado**: en esta actividad te mostraré una aplicación donde aplicaremos 
-todos los conceptos que estudiarás en esta unidad. 
+🎯 **Enunciado**: en esta actividad te mostraré una aplicación para que veas 
+aplicados todos los conceptos que estudiarás en esta unidad. 
 
 Durante la actividad te indicaré los momentos en los que debes detenerte para 
 analizar 🧐, experimentar 🧪 y reportar ✍️ tus hallazgos en la bitácora de 
@@ -297,7 +297,8 @@ Cuando ejecutes la aplicación deberías ver algo como esto:
 
 ![Múltiples partículas- explosión](../../../../assets/u5a1-4.webp)
 
-🧐🧪✍️ ¿Cómo puedes interactuar con la aplicación?
+🧐🧪✍️ ¿Cómo puedes interactuar con la aplicación? (hay interacción con el 
+teclado y el mouse)
 
 📤 **Entrega**: reporta en la bitácora tu hallazgos en todos los puntos que te 
 marqué para analizar 🧐, experimentar 🧪 y reportar ✍️.
