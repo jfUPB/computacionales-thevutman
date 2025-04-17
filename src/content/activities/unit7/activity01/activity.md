@@ -10,7 +10,7 @@ vas a profundizar en el código y en los conceptos de OpenGL.
 
 **Ejemplo simple de un triángulo en OpenGL:**
 
-1. Abre y explora la plantilla:
+1. Abre y explora el programa:
 
 * Descarga el proyecto que está en [este repositorio de GitHub](https://github.com/juanferfranco/triangle)
 *   Descomprime y abre el archivo de solución (`.sln`) de Visual Studio proporcionado.
@@ -27,6 +27,14 @@ vas a profundizar en el código y en los conceptos de OpenGL.
 * Observa la estructura del proyecto en el Explorador de Soluciones e identifica el archivo de C++ `.cpp` y los shaders `.vert` y `.frag`.
 
 2. Compila y ejecuta el ejemplo.
+
+:::note[Este ejemplo ya lo viste]
+¿Te diste cuenta que este ejemplo ya la habías visto antes? Lo novedoso es que antes 
+este ejemplo lo habías visto hecho con OpenFrameworks y ahora lo estás viendo con OpenGL puro. Te preguntarás 
+¿Por qué? La respuesta es que OpenGL es la base de OpenFrameworks. OpenFrameworks es una biblioteca que se construye sobre OpenGL y lo hace más fácil de usar. Entonces ¿Por qué no usamos OpenFrameworks? Porque quiero que entiendas cómo funciona OpenGL y cómo se construyen las cosas desde cero. ¿Por qué? Porque al entender los conceptos de OpenGL vas a poder usar cualquier otra herramienta 
+que se construya sobre OpenGL o una API más avanzada como **Vulkan**. No olvides esto **POR FAVOR**. No aprendas simplemente 
+herramientas, aprende conceptos. Las herramientas cambian, pero los conceptos son los mismos.
+:::
 
 :::note[🧐🧪✍️ Reporta en tu bitácora]
 1.  Incluye una captura de pantalla de CADA uno de los ejemplos funcionando en tu máquina.
