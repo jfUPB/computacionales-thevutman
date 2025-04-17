@@ -129,5 +129,7 @@ Finalmente, hacemos un UNBINDING del VAO. Esto significa que todos los comandos 
 Te estarás preguntado ¿Qué es eso de los atributos? **¿Qué es eso de los vertex attributes?**
 Los atributos de vértice son propiedades que describen cada vértice en un buffer de vértices. Estos atributos pueden incluir información como la posición, el color, las coordenadas de textura y las normales. Cada atributo tiene un índice único que se utiliza para referenciarlo en el shader. En el ejemplo del triángulo simple, solo estamos usando la posición del vértice como atributo. Sin embargo, en aplicaciones más complejas, puedes tener múltiples atributos por vértice.
 
+Debes estar haciéndote una pregunta desde hace rato 
+
 
 
