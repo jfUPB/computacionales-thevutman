@@ -8,8 +8,24 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+**Introducción** 📜
 
-## ¿Qué aprenderás en esta unidad?
+En esta unidad vas a realizar una introducción práctica a la programación gráfica moderna. 
+Usarás una plantilla de proyecto preconfigurada para Visual Studio con C++, GLFW, GLAD y GLM 
+para explorar cómo se crean gráficos acelerados por hardware con OpenGL. Nos centraremos en 
+entender el **pipeline programable** analizando y modificando ejemplos funcionales, culminando 
+con algunos problemas simples y una modificación de un caso de estudio. Dado el tiempo limitado, 
+nos enfocaremos en los conceptos esenciales para que puedas empezar.
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+*   **Navegar un proyecto OpenGL básico:** entenderás la estructura y el ciclo de vida de una aplicación gráfica simple.
+*   **Identificar el rol de los Shaders:** modificarás vertex y fragment shaders básicos (GLSL) y entenderás su impacto.
+*   **Comprender el flujo de datos:** analizarás cómo los datos de vértices (VBOs) se conectan a los shaders 
+a través de la configuración de estado (VAOs).
+*   **Usar Uniforms:** pasarás datos dinámicos (como el tiempo o colores) desde C++ a tus shaders.
+*   **Aplicar conocimientos modificando código existente:** reforzarás tu aprendizaje alterando ejemplos 
+funcionales y el caso de estudio principal.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +37,13 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
+
+En esta fase vas a explorar los conceptos fundamentales de OpenGL y su pipeline programable. 
+Vas a investigar cómo funcionan los shaders y cómo se comunican con el código C++. 
+Vas a realizar una serie de actividades que te ayudarán a entender cómo funcionan los gráficos 
+acelerados por hardware y cómo puedes manipularlos. Adicional, vas a investigar el caso de 
+estudio que vas a modificar en la fase de aplicación.
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +55,12 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación 🛠
+
+En esta fase vas a aplicar lo que aprendiste en la fase de investigación.
+Te voy a proponer algunos ejercicios simples para que repases los conceptos de la 
+fase de investigación. Luego, vas a aplicar lo aprendido en una modificación del
+caso de estudio de la fase de investigación.
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +72,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y metacognición
+## Consolidación y metacognición 🤔
+
+Finalmente, en esta fase consolidarás lo aprendido, te autoevaluarás y ofrecerás 
+feedback para mejorar esta unidad para futuros estudiantes.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
