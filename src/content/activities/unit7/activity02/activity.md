@@ -1,16 +1,16 @@
 #### ¿Cómo se crea un proyecto OpenGL en Windows?
 
 :::note[🎯 Enunciado]
-En esta actividad vas a aprender cómo se crean proyectos OpenGL en Windows.
-Vas a entender cómo funcionan las bibliotecas y los archivos que necesitas para que un programa OpenGL funcione en Windows.
+En esta actividad vas a entender que necesitas para que un programa OpenGL funcione en Windows.
 :::
 
 **¿Cómo se crean un proyecto openGL en Windows?**
 
-En la actividad anterior te entregué los dos proyectos que vamos a analizar en esta fase de investigación. Esto 
-lo hago para que no te distraigas con la configuración del entorno y puedas concentrarte en el código; sin embargo, 
-hay algunos conceptos fundamentales del proceso de creación de un proyecto OpenGL que es importante que entiendas. Por eso, 
-te voy a explicar cómo se crean un proyecto OpenGL en Windows. Si quieres puedes seguir los pasos que te voy a mostrar, pero no es necesario.
+En la actividad anterior te entregué un ejemplo que vamos a analizar en esta fase de investigación. 
+El ejemplo ya estaba previamente configurado y listo para compilar y ejecutar. Sin embargo, en esta actividad 
+te voy a explicar cómo se crea un proyecto OpenGL desde cero porque hay algunos conceptos fundamentales 
+del proceso de creación de un proyecto OpenGL que es importante que entiendas. Trata de reproducir el proceso 
+en tu máquina. Si no lo logras, no te preocupes, en la fase de investigación vamos a profundizar en el tema.
 
 Lo primero que necesitas es crear un proyecto vacío (Empty project) en C++ en Visual Studio. 
 Luego, necesitas agregar las librerías de OpenGL, GLFW y GLAD. En el ejemplo del triángulo simple de la actividad 
@@ -18,10 +18,11 @@ anterior ya están incluidas las librerías y los archivos de encabezado necesar
 adicional llamada GLM, que es una biblioteca de matemáticas para gráficos 3D. De todas formas, esta biblioteca 
 no es estrictamente necesaria para crear un proyecto OpenGL, pero es muy útil para trabajar con matrices y vectores.
 
-Volvamos pues a la pregunta inicial: ¿Cómo se crean un proyecto OpenGL en Windows? Una vez que tienes 
+Volvamos pues a la pregunta inicial: **¿Cómo se crean un proyecto OpenGL en Windows?** Una vez que tienes 
 el proyecto vacío creado, lo vas a buscar en el explorador de archivos de Windows. Vas a crear una carpeta 
-llamada external. Dentro de esa carpeta guardarás las dependencias de tu proyecto. Para hacer esto, crea estas carpetas, 
-que son las que contienen las dependencias de tu proyecto:
+llamada **external** (observa en el ejemplo del triángulo simple esta carpeta y su contenido). Dentro de esa carpeta 
+guardarás las dependencias de tu proyecto. Para hacer esto, crea estas carpetas, que son las que contienen 
+las dependencias de tu proyecto:
 
 ```bash
 glfw34
@@ -29,7 +30,8 @@ glad
 glm-101-light
 ```
 
-¿Qué dependencias necesitas y por qué? Comencemos con GLFW. Esta es una biblioteca que te permite crear ventanas y manejar eventos de entrada (teclado, ratón, etc.). [GLFW](https://www.glfw.org/) es una biblioteca multiplataforma, lo que significa que puedes usarla en Windows, Linux y MacOS. Para conseguir la biblioteca, lo que necesitas es ir al repositorio en Github y descargar el archivo glfw-3.4.bin.WIN64.zip que está en la sección de releases. Descomprime el archivo y guarda los siguientes archivos en la carpeta glfw34:
+¿Qué dependencias necesitas y por qué? Comencemos con **GLFW**. Esta es una biblioteca que te permite crear ventanas y manejar eventos de entrada (teclado, ratón, etc.). [GLFW](https://www.glfw.org/) es una biblioteca multiplataforma, lo que significa que puedes usarla en Windows, Linux y MacOS. Para conseguir la biblioteca, lo que necesitas es ir al repositorio en Github y descargar el archivo glfw-3.4.bin.WIN64.zip que está en la sección de releases. Descomprime el archivo y guarda las siguientes carpetas 
+en glfw34:
 
 ```bash
 include
@@ -40,7 +42,7 @@ README.md
 
 La carpeta include contiene los archivos de encabezado de la biblioteca. La carpeta lib-vc2022 contiene las bibliotecas compiladas para Visual Studio 2022.
 
-Ahora sigamos con GLAD. Esta es una biblioteca que te permite cargar las funciones de OpenGL. [GLAD](https://glad.dav1d.de/) es un cargador de funciones de OpenGL que te permite acceder a las funciones de OpenGL en tiempo de ejecución. Para conseguir la biblioteca, lo que haces es ir al sitio web de GLAD y generar el código fuente para OpenGL 4.6 y el perfil Core. Luego descarga el archivo zip y guarda los directorios src e include en la carpeta glad que habíamos creado antes en external.
+Ahora sigamos con **GLAD**. Esta es una biblioteca que te permite cargar las funciones de OpenGL. [GLAD](https://glad.dav1d.de/) es un cargador de funciones de OpenGL que te permite acceder a las funciones de OpenGL en tiempo de ejecución. Para conseguir la biblioteca, lo que haces es ir al sitio web de GLAD y generar el código fuente para OpenGL 4.6 y el perfil Core. Luego descarga el archivo zip y guarda los directorios src e include en la carpeta glad que habíamos creado antes en external.
 
 Te voy a mostrar unas capturas de pantalla para que veas cómo configurar las opciones en el sitio de GLAD:
 
@@ -48,7 +50,7 @@ Te voy a mostrar unas capturas de pantalla para que veas cómo configurar las op
 ![Captura de pantalla de la configuración de GLAD](../../../../assets/glad2.png)
 
 Aquí tengo varias cosas interesantes para contarte. La primera es la versión de API de OpenGL. Nota que elegí la versión 4.6. 
-Esto es porque es la versión más reciente de OpenGL y es la que vamos a usar en esta unidad. La segunda cosa interesante es el perfil. Elegí el perfil Core porque es el perfil más moderno de OpenGL. El perfil Compatibility es el perfil más antiguo de OpenGL y no lo vamos a usar en esta unidad.
+Esto es porque es la versión más reciente de OpenGL y es la que vamos a usar en esta unidad. La segunda cosa interesante es el perfil. Elegí el perfil **Core** porque es el perfil más moderno de OpenGL. El perfil Compatibility es el perfil más antiguo de OpenGL y no lo vamos a usar en esta unidad.
 
 Nos falta otra dependencia, ¿Verdad? Se trata de GLM. En este caso descargué el archivo glm-1.0.1-light.zip del repositorio de [GLM en Github](https://github.com/g-truc/glm/releases/tag/1.0.1). Nota que la versión descargada es la 1.0.1. Por eso en la carpeta 
 externals se crea la carpeta glm-101-light. Allí guardas completa la carpeta glm que resulta de descomprimir el archivo zip.
@@ -80,7 +82,7 @@ Como esas funciones no se pueden usar directamente, necesitamos una herramienta 
 
 ¿Ya terminamos? Aún no, pero no te desanimes. Nos falta un paso importante: agregar el archivo de código fuente de GLAD al proyecto.
 
-Esto se hace muy fácilmente: solo debes añadir el archivo glad.c que se encuentra en la carpeta glad/src a tu proyecto. Este archivo contiene la implementación que permite cargar las funciones modernas de OpenGL en tiempo de ejecución.
+Esto se hace muy fácilmente: solo debes añadir (ojo, click derecho al proyecto en Visual Studio y seleccionas Add/New item) el archivo glad.c que se encuentra en la carpeta glad/src a tu proyecto. Este archivo contiene la implementación que permite cargar las funciones modernas de OpenGL en tiempo de ejecución.
 
 ¿Y ahora sí? ¡Ya casi! Solo falta un detalle final: debes asegurarte de que el archivo glfw3.dll esté en el directorio principal del proyecto. Este archivo lo puedes encontrar en la carpeta lib-vc2022 dentro del directorio glfw34 que descargaste previamente.
 
@@ -96,7 +98,6 @@ En resumen:
 
 Por eso es crucial que copies glfw3.dll. Con eso, ahora sí... ¡Tenemos todo listo!
 
-
 **🧩 ¿Qué necesitas para que un programa OpenGL funcione en Windows?**
 
 Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos que cumplen roles distintos. Aquí te explico **qué hace cada uno y por qué es necesario**:
@@ -110,7 +111,7 @@ Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos 
 - Es necesaria para iniciar cualquier programa OpenGL en Windows, aunque no contenga las funciones modernas.
 
 :::note
-📍 **Dónde están las funciones:** solo hasta OpenGL 1.1  
+📍 **Dónde están las funciones:** solo hasta OpenGL 1.1.  
 🛠️ **Cuándo se usa:** durante la **compilación** para enlazar el inicio de OpenGL.
 :::
 
@@ -126,8 +127,8 @@ Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos 
 :::note
 📍 **Dónde están las funciones:** en el archivo `glfw3.dll`  
 🛠️ **Cuándo se usa:**  
-- `.lib`: en **compilación y enlace**  
-- `.dll`: en **ejecución**  
+- `.lib`: en **compilación y enlace**.  
+- `.dll`: en **ejecución**.  
 ⚠️ Si no colocas `glfw3.dll` en el directorio de tu ejecutable, el programa compila pero **no corre**.
 :::
 
@@ -136,12 +137,12 @@ Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos 
 🔹 GLAD
 
 - Es un **cargador de funciones de OpenGL**.
-- Las funciones modernas de OpenGL (3.3, 4.6…) **no están en `opengl32.lib`**: están implementadas por los **drivers de la GPU**.
+- Las funciones modernas de OpenGL (3.3, 4.6) **no están en `opengl32.lib`**: están implementadas por los **drivers de la GPU**.
 - GLAD obtiene esas funciones desde el driver usando `wglGetProcAddress` y las hace disponibles en tu código.
 
 :::note
-📍 **Dónde están las funciones:** en los **drivers** de tu tarjeta gráfica  
-🛠️ **Cuándo se usa:** en **tiempo de ejecución**, cuando se llama a `gladLoadGL()`  
+📍 **Dónde están las funciones:** en los **drivers** de tu tarjeta gráfica.  
+🛠️ **Cuándo se usa:** en **tiempo de ejecución**, cuando se llama a `gladLoadGL()`.  
 📁 Necesitas agregar al proyecto el archivo `glad.c` y sus encabezados (`include/glad/glad.h`).
 :::
 
@@ -153,7 +154,7 @@ Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos 
 - Es solo código fuente (`.hpp`), no requiere `.lib` ni `.dll`.
 
 :::note
-📍 **Dónde están las funciones:** en los archivos `.hpp` de GLM  
+📍 **Dónde están las funciones:** en los archivos `.hpp` de GLM.  
 🛠️ **Cuándo se usa:** solo en **tiempo de compilación**  
 📦 No es obligatoria para usar OpenGL, pero es muy útil.
 :::
@@ -171,5 +172,8 @@ Al desarrollar con OpenGL en Windows, intervienen varias bibliotecas y archivos 
 Necesito que hagas digestión de esta información y que la entiendas. Para ello te voy a pedir 
 un resumen en tus propias palabras de lo que acabas de leer. En tu resumen debes tratar de 
 conectar GLFW, opengl32.lib, GLAD, GLM y los drivers de la GPU. ¿Qué rol cumple cada uno? ¿Cómo se relacionan entre sí? 
+Mira, trata de hacer esto de memoria y como si estuvieras contándole a un amigo que quiere aprender OpenGL. Cuando 
+haces el proceso de memoria tu cerebro hace un esfuerzo adicional y eso te ayuda a aprender. Además, si no recuerdas 
+algo quiere decir que no lo entendiste bien y eso es una buena señal para que vuelvas a leerlo.
 :::
 

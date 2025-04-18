@@ -6,7 +6,7 @@ cuando te digo que es el ejemplo simple, pero es así. Este es el hola mundo de 
 Vas a analizar el código del triángulo simple y vas a entender cómo funciona.
 Vas a observar cómo se crea la ventana, cómo funciona el ciclo principal (game loop) y cómo se realiza el dibujo más básico.
 No te distraigas, en la fase de aplicación te pediré que hagas algunas modificaciones, pero no ahora. Nuestro objetivo 
-es entender cómo funciona el código y cómo se estructura y luego harás las modificaciones.
+es entender cómo funciona el código y cómo se estructura, luego harás las modificaciones.
 :::
 
 **¿Qué es el contexto OpenGL?**
@@ -23,7 +23,7 @@ Un contexto OpenGL es una estructura de datos interna que contiene:
 Es como si cada contexto fuera un **espacio de trabajo** de OpenGL.
 
 ¿Por qué es necesario? OpenGL no funciona por sí solo: necesita saber dónde dibujar y qué recursos están disponibles.
-Esto se logra asociando un contexto OpenGL a una **ventana**, y asegurándote de que ese contexto esté activo en el hilo que va a dibujar (esto del hilo es un tema que no hemos visto, pero no te preocupes, no es necesario para esta unidad. Lo entenderás en la unidad que sigue. Por ahora piensa que un hilo es el flujo de las instrucciones de tu programa). En otras palabras, el contexto OpenGL es el intermediario entre tu código y la GPU.
+Esto se logra asociando un contexto OpenGL a una **ventana**, y asegurándote de que ese contexto esté activo en el hilo que va a dibujar (esto del hilo es un tema que no hemos visto, pero no te preocupes, no es necesario para esta unidad. Lo entenderás en la unidad que sigue. Por ahora piensa que **un hilo es el flujo de las instrucciones de tu programa**). En otras palabras, el contexto OpenGL es el intermediario entre tu código y la GPU.
 
 ¿Quién crea el contexto? OpenGL no crea contextos por sí solo. Tú necesitas una biblioteca que lo haga por ti.
 En este caso vamos a usar **GLFW**. GLFW es una biblioteca que te permite crear ventanas y contextos OpenGL de manera sencilla. 
@@ -34,61 +34,11 @@ GLFW se encarga de crear el contexto OpenGL y asociarlo a una ventana. Luego, t�
 
 Observa la primera parte de la función `main` del ejemplo del triángulo simple:
 
-```cpp	
-int main()
-{
-	// 1) Inicializar GLFW
-	if (!glfwInit()) {
-		std::cerr << "Fallo al inicializar GLFW\n";
-		return -1;
-	}
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	// 2) Crear ventana
-	GLFWwindow* mainWindow = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Ventana", nullptr, nullptr);
-	if (!mainWindow) {
-		std::cerr << "Error creando ventana1\n";
-		glfwTerminate();
-		return -1;
-	}
-
-	// 3) Lee el tamaño del framebuffer
-	int bufferWidth, bufferHeight;
-	glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
-	
-	// 4) Callbacks 
-	glfwSetFramebufferSizeCallback(mainWindow, framebuffer_size_callback);
-
-
-	// 5) Cargar GLAD y recursos en contexto de window1
-	glfwMakeContextCurrent(mainWindow);
-
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-		std::cerr << "Fallo al cargar GLAD (contexto1)\n";
-		return -1;
-	}
-
-	// 6) Habilita el V-Sync
-	glfwSwapInterval(1);
-
-	// 7) Compila y linkea shaders
-	shaderProg = buildShaderProgram();
-
-	// 8) Genera el contenido a mostrar
-	setupTriangle();
-
-	// 9) Configura el viewport
-	glViewport(0, 0, bufferWidth, bufferHeight);
-
-```
-
 ```cpp
 if (!glfwInit()) { ... }
 ```
-Esta línea inicializa GLFW, la biblioteca que usaremos para crear la ventana y manejar eventos (como teclado, mouse o cambios de tamaño).
-Si la inicialización falla, se imprime un mensaje de error y el programa se termina.
+
+Esta línea inicializa GLFW, la biblioteca que usaremos para crear la ventana y manejar eventos (como teclado, mouse o cambios de tamaño). Si la inicialización falla, se imprime un mensaje de error y el programa se termina.  
 🔎 Importante: GLFW debe inicializarse antes de usar cualquiera de sus funciones.
 
 ```cpp
@@ -102,7 +52,7 @@ Estas líneas configuran el contexto OpenGL que queremos crear:
 - Especificamos la versión 4.6 de OpenGL.
 - Usamos el perfil Core, que excluye funciones obsoletas (como glBegin, glEnd).
 
-¿Recuerdas qué es el contexto de OpenGL? Cierra los ojos e intenta recuperar de memoria la analogía del artista y el estudio.
+¿Recuerdas qué es el contexto de OpenGL? **Cierra los ojos e intenta recuperar de memoria** la analogía del artista y el estudio.
 
 Contexto OpenGL: es el entorno donde OpenGL guarda todo el estado gráfico (shaders, texturas, buffers, etc.).
 Lo necesitas para que las funciones de OpenGL tengan efecto.
@@ -123,12 +73,12 @@ es una porción de memoria donde OpenGL dibuja los píxeles antes de enviarlos a
 Podemos imaginarlo como una “hoja invisible” donde OpenGL pinta cada imagen cuadro a cuadro.
 
 Este tamaño puede ser diferente al tamaño de la ventana en píxeles, especialmente en pantallas 
-con escalado (como pantallas retina).
+con escalado (como pantallas retina). ¿Por qué? En pantallas Hi‑DPI (Retina) cada “píxel lógico” de la ventana se representa con varios píxeles físicos; por ello el framebuffer, que usa los píxeles físicos reales, puede tener dimensiones mayores que las reportadas para la ventana.
 
 Aquí te estarás preguntando, cuando se dice que OpenGL dibuja en el framebuffer, ¿Qué significa eso? 
 ¿No se supone que quien dibuja es la GPU? Entonces **¿Quién dibuja: la GPU o OpenGL?** La respuesta corta es:
 
->La GPU es quien realmente dibuja, y OpenGL es la API que le dice a la GPU qué y cómo dibujar.
+> La GPU es quien realmente dibuja, y OpenGL es la API que le dice a la GPU qué y cómo dibujar.
 
 Entonces repasemos un poco: 
 
@@ -143,9 +93,9 @@ enviar instrucciones a la GPU. OpenGL no dibuja directamente. En cambio, traduce
 
 En otras palabras:
 
-- Tú escribes código OpenGL en C++
-- OpenGL lo convierte en instrucciones que la GPU entiende
-- La GPU hace el trabajo pesado en paralelo, pintando los píxeles en el framebuffer
+- Tú escribes código OpenGL en C++.
+- OpenGL lo convierte en instrucciones que la GPU entiende.
+- La GPU hace el trabajo pesado en paralelo, pintando los píxeles en el framebuffer.
 
 **¿Por qué se dice entonces que “OpenGL dibuja”?** Porque es una simplificación útil cuando 
 estás empezando. OpenGL es el lenguaje de control, pero el artista es la GPU. Decir "OpenGL dibuja 
@@ -154,17 +104,15 @@ la herramienta.
 
 Como analogía final considera lo siguiente:
 
-- Tú (el programador) / Diseñas la escena: qué se va a dibujar y cómo.
-- OpenGL / El lenguaje que usas para dar instrucciones.
-- GPU / El artista que ejecuta todo el trabajo gráfico.
-- Framebuffer /	La hoja donde el artista (GPU) pinta.
-- Pantalla / La galería donde muestras el resultado final
-
+- Tú (el programador) -> Diseñas la escena, es decir, lo qué se va a dibujar y cómo.
+- OpenGL -> El lenguaje que usas para dar instrucciones.
+- GPU -> El artista que ejecuta todo el trabajo gráfico.
+- Framebuffer -> La hoja donde el artista (GPU) pinta.
+- Pantalla / La galería donde muestras el resultado final.
 
 ```cpp
 glfwMakeContextCurrent(mainWindow);
 ```
-
 Aquí hacemos que el contexto OpenGL asociado a mainWindow sea el contexto actual.
 Esto es fundamental: cualquier función de OpenGL que llamemos a partir de ahora afectará a este contexto.
 
