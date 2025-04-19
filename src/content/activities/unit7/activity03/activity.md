@@ -134,6 +134,21 @@ Se mide en píxeles y normalmente coincide con el tamaño completo del framebuff
 Si el viewport no se ajusta correctamente al tamaño del framebuffer, lo que dibujas podría 
 aparecer estirado, recortado o mal posicionado.
 
+:::note[🧐🧪✍️ Reporta en tu bitácora]
+Qué tal si ensayas. Prueba con esta línea 
+```cpp
+// 9) Configura el viewport
+glViewport(0, 0, bufferWidth, bufferHeight);
+```
+¿Qué pasa si?
+
+```cpp	
+glViewport(0, bufferHeight/2, bufferWidth/2, bufferHeight/2);
+```
+Cambia los valores de bufferWidth y bufferHeight: divide por 2, por 4, multiplica por 2, por 4, etc.
+¿Qué pasa? ¿Qué observas? ¿Qué crees que está pasando?
+:::
+
 ## Resumen hasta aquí 
 | Concepto        | ¿Qué es?                                               | ¿Por qué es importante?                                            |
 |-----------------|--------------------------------------------------------|--------------------------------------------------------------------|
@@ -165,7 +180,7 @@ Esta línea carga las funciones de OpenGL en el contexto actual. GLAD es una bib
 ```cpp
 glfwSwapInterval(1);
 ```
-Esta línea activa la sincronización vertical (VSync), que limita la tasa de refresco de la ventana al mismo valor que la tasa de refresco del monitor. Esto evita el desgarro de pantalla (tearing) y hace que el movimiento sea más suave.
+Esta línea activa la sincronización vertical (VSync), que limita la tasa de refresco de la ventana al mismo valor que la tasa de refresco del monitor. Esto evita el **tearing** y hace que el movimiento sea más suave.
 
 ```cpp
 shaderProg = buildShaderProgram();
@@ -177,8 +192,7 @@ Esta función es fundamental porque los shaders son los programas que OpenGL eje
 ```cpp	
 setupTriangle();
 ```
-
-Esta línea llama a la función setupTriangle(), que configura los datos del triángulo (vértices, colores, etc.) y los carga en la GPU. Esta función es fundamental porque define cómo se verá el triángulo en pantalla.
+Esta línea llama a la función setupTriangle(), que configura los datos del triángulo (posición de los vértices) y los carga en la GPU. Esta función es fundamental porque define cómo se verá el triángulo en pantalla.
 Esta función es la que se encarga de crear el VBO y el VAO del triángulo (más sobre los shaders, VBOs y VAOs en un rato).
 
 ```cpp	
@@ -265,13 +279,21 @@ Esta línea activa el Vertex Array Object (VAO) que hemos creado anteriormente. 
 ```cpp
 glDrawArrays(GL_TRIANGLES, 0, 3);
 ```
-Esta línea le dice a OpenGL que dibuje el triángulo. GL_TRIANGLES indica que queremos dibujar un triángulo, 0 es el índice de inicio y 3 es el número de vértices a dibujar. En este caso, estamos dibujando un triángulo con 3 vértices.
+Esta línea le dice a OpenGL que dibuje el triángulo. GL_TRIANGLES indica que queremos dibujar un triángulo, 0 es el índice de inicio y 3 es el número de vértices a dibujar (un triángulo necesita tres vértices o puntos).
+
+:::note[🧐🧪✍️ Reporta en tu bitácora]
+¿Qué pasa si cambias el primer parámetro de glDrawArrays a GL_LINES? ¿Qué pasa si lo cambias a GL_POINTS? ¿Qué pasa si cambias el tercer parámetro a 2? ¿Qué pasa si lo cambias a 4?
+
+En esta unidad no profundizaremos en los tipos de primitivas, pero es importante que entiendas que OpenGL puede dibujar diferentes tipos de primitivas (triángulos, líneas, puntos, etc.).
+:::
+
 
 ```cpp
 glfwSwapBuffers(mainWindow);
 ```
 
-Esta línea intercambia los buffers de la ventana. OpenGL usa doble buffering para evitar parpadeos y mejorar el rendimiento. Al final de cada frame, el contenido del framebuffer se muestra en la ventana y se prepara un nuevo framebuffer para el siguiente frame.	
+Esta línea muestra en pantalla el contenido del framebuffer que OpenGL acaba de renderizar.
+Internamente, intercambia (por eso la palabra **Swap**) el buffer trasero (donde dibujas) con el buffer delantero (que se ve en pantalla), una técnica llamada **doble buffering** que evita parpadeos y asegura una imagen fluida.
 
 ```cpp	
 // 17) Limpieza
@@ -292,22 +314,22 @@ el programa se termina inmediatamente, pero es una buena práctica hacerlo.
 Vamos a terminar esta actividad con un nuevo momento de consolidación parcial. Hay algunos conceptos 
 relacionados con los shaders y el pipeline de OpenGL que no hemos visto en detalle, pero no te preocupes, 
 los vamos a trabajar en la siguiente actividad. Por ahora, quiero que te concentres en lo que has aprendido hasta aquí.
-Explica en tus propias palabras los siguientes conceptos. Puedes usar ejemplos, analogías o diagramas para 
+Explica con tus propias palabras los siguientes conceptos. Puedes usar ejemplos, analogías o diagramas para 
 ilustrar tus respuestas. Es importante que intentes responder estos conceptos sin ver inicialmente tus notas. Trata 
 de ejercitar tu memoria y tu comprensión. Luego, puedes revisar tus notas para completar o corregir lo que hayas escrito.
 
-1.  **¿Qué es el contexto OpenGL?**
-2. **¿Cuál es el rol de la biblioteca GLFW y qué ventaja tiene usarla?**
-3. **¿Por qué crees que OpenGL necesita un contexto (recuerda la analogía del taller de arte)?**
-4. **¿En últimas qué será el framebuffer y a qué te recuerda de las dos primeras unidades del curso?**
-5. **¿Qué relación entre en el viewport y el framebuffer?**
-6. **¿En todo la analizado hasta ahora qué rol juega los drivers de la GPU y la GPU misma?**
-7. **¿Por qué crees que sea necesario activar el VSync?** **¿Si no lo activas y la imagen es estática qué crees que pase, y si es dinámica?**
-8. En esta unidad estamos usando OpenGL moderno, pero **¿Qué es OpenGL Legacy?** **¿Qué diferencias crees que hay entre ambos?**
-9. **¿Qué es el shader program?** ¿Por qué es importante en OpenGL moderno?
-10. Trata de revisar el código setupTriangle(), intuitivamente **¿Qué crees que hace?** ¿Qué crees que es el VAO y el VBO?
-11. En el ciclo principal (game loop) de OpenGL, notaste que en cada frame (cuadro) le decimos a openGL que use el shader program y el VAO. Si le indicas esto antes del game loop  **¿Será necesario?** Si no es necesario **¿En qué casos crees que esto puede ser útil?** 
-12. Finalmente, recuerda lo que hace glfwSwapBuffers(mainWindow); **¿Por qué crees que es importante?** **¿Qué pasaría si no lo llamas?** **¿Cómo explicas lo que pasa si no lo llamas?** 
+1.  ¿Qué es el contexto OpenGL?
+2. ¿Cuál es el rol de la biblioteca GLFW y qué ventaja tiene usarla?
+3. ¿Por qué crees que OpenGL necesita un contexto (recuerda la analogía del taller de arte)?
+4. ¿En últimas qué será el framebuffer y a qué te recuerda de las dos primeras unidades del curso?
+5. ¿Qué relación entre en el viewport y el framebuffer?
+6. ¿En todo la analizado hasta ahora qué rol juega los drivers de la GPU y la GPU misma?
+7. ¿Por qué crees que sea necesario activar el VSync? ¿Si no lo activas y la imagen es estática qué crees que pase, y si es dinámica?
+8. En esta unidad estamos usando OpenGL moderno, pero ¿Qué es OpenGL Legacy? ¿Qué diferencias hay entre ambos?
+9. ¿Qué es el shader program? ¿Por qué es importante en OpenGL moderno?
+10. Trata de revisar el código setupTriangle(), intuitivamente ¿Qué crees que hace? ¿Qué crees que es el VAO y el VBO?
+11. En el ciclo principal (game loop) de OpenGL, notaste que en cada frame (cuadro) le decimos a openGL que use el shader program y el VAO. Si le indicas esto antes del game loop ¿Será necesario seguirlo haciendo en cada loop? Si no es necesario ¿En qué casos crees que esto puede ser útil?
+12. Finalmente, recuerda lo que hace glfwSwapBuffers(mainWindow); ¿Por qué crees que es importante? ¿Qué pasaría si no lo llamas? ¿Cómo explicas lo que pasa si no lo llamas? (experimenta)
 :::
 
 :::caution[📤 Entrega]
