@@ -183,11 +183,11 @@ Esto se debe a que la operación de incremento no es atómica, lo que significa 
 nuestros registros eran A y D, ¿Recuerdas?). ¿Cómo crees que el procesador realice la línea de código anterior?
 
 Para incrementar el valor de `counter`, el procesador debe realizar varias operaciones:
-1. Leer el valor actual de `counter` desde la memoria.
-2. Incrementar el valor leído.
-3. Escribir el nuevo valor de `counter` de nuevo en la memoria.
+1. Leer el valor actual de `counter` desde la memoria. Ese valor se lee a un registro del procesador.
+2. Incrementar el valor leído. El cálculo se realiza en el registro del procesador.
+3. Escribir el nuevo valor de `counter` de nuevo en la memoria. El valor que está en el registro se escribe de nuevo en la memoria.
 
-Esto implica que el procesador debe acceder a la memoria varias veces para realizar la operación de incremento. Si varios hilos intentan realizar esta operación al mismo tiempo, pueden interferir entre sí y provocar resultados inesperados.
+Esto implica que el procesador debe acceder a la memoria varias veces (¿Cuántas?) para realizar la operación de incremento. Si varios hilos intentan realizar esta operación al mismo tiempo, pueden interferir entre sí y provocar resultados inesperados.
 
 
 :::note[🧐🧪✍️]

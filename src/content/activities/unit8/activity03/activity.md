@@ -440,7 +440,7 @@ este código para resolver un reto.
     - Realiza cambios pequeños y específicos.
     - Lanza una hipótesis sobre lo que crees que va a pasar.
     - Ejecuta el código y observa lo que ocurre.
-    - Tu hipótesis era correcta? ¿Por qué crees que ocurre esto?
+    - ¿Tu hipótesis era correcta? ¿Por qué crees que ocurre esto?
 
 Te dejo una idea para comenzar a experimentar: ¿Qué ocurre si cambias el número de hilos? ¿Por qué crees que ocurre esto?
 :::

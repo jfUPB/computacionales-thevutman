@@ -9,7 +9,7 @@ recursos de procesamiento del hardware de tu computador: **los cores**. Para ell
 
 **¿Qué es un sistema operativo?**
 
-En términos generales, un sistema operativo es un SOFTWARE que administra RECURSOS de hardware y software del computador Y provee servicios mediante los cuales los programas de usuario pueden hacer uso de esos recursos.
+En términos generales, un sistema operativo es un SOFTWARE que administra RECURSOS de hardware y software del computador y provee servicios mediante los cuales los programas de usuario pueden hacer uso de esos recursos.
 
 El servicio que vamos a explorar en esta actividad es el de hilos o threads. Un hilo es una unidad de ejecución dentro de un proceso. Un proceso puede contener múltiples hilos, cada uno de los cuales puede ejecutar su propio código de manera concurrente. Los hilos comparten el mismo espacio de memoria y recursos del proceso, lo que les permite comunicarse entre sí de manera eficiente.
 
@@ -18,7 +18,7 @@ un proceso (programa en ejecución) pueda ejecutar múltiples tareas al mismo ti
 
 **De nuevo ¿Qué es un hilo?** 
 
-Hasta ahora todos los programas que has realizado tienen un **SOLO flujo de instrucciones**. ¿Y si quieres tener en el mismo programa VARIOS flujos de instrucciones independientes? Lo puedes hacer con los hilos. Los hilos permitirán que un programa pueda **HACER VARIAS COSAS AL MISMO TIEMPO**, cada cosa con hilo independiente. Ten presente que los hilos compartirán recursos del proceso entre ellos estará el HEAP; sin embargo, cada hilo tendrá su propio STACK (que belleza, ya podemos relacionar el stack y el heap con los hilos).
+Hasta ahora todos los programas que has realizado tienen un **SOLO flujo de instrucciones**. ¿Y si quieres tener en el mismo programa VARIOS flujos de instrucciones independientes? Lo puedes hacer con los hilos. Los hilos permitirán que un programa pueda **HACER VARIAS COSAS AL MISMO TIEMPO**, cada cosa con un hilo independiente. Ten presente que los hilos compartirán recursos del proceso entre ellos estará el HEAP; sin embargo, cada hilo tendrá su propio STACK (que belleza, ya podemos relacionar el stack y el heap con los hilos).
 
 **Y en la práctica ¿Cómo sería la cosa?**
 

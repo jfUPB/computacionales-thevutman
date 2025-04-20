@@ -15,11 +15,11 @@ La separación evita que los boids se acerquen demasiado entre sí, la alineaci�
 
 La separación se implementa calculando la distancia entre un boid y sus vecinos cercanos. Si la distancia es menor que un umbral predefinido, se aplica una fuerza de separación para alejar al boid de sus vecinos. La alineación se implementa calculando la dirección promedio de los vecinos cercanos y ajustando la dirección del boid para que coincida con esa dirección. La cohesión se implementa calculando el centro de masa de los vecinos cercanos y aplicando una fuerza hacia ese punto.
 
-Ahora te mostraré un ejemplo de cómo implementar el algoritmo de Flocking en openFrameworks. En este ejemplo, cada boid se mueve en función de su posición y la posición de sus vecinos cercanos. El código está dividido en dos partes: una implementación sin hilos y otra con hilos.
+Ahora te mostraré un ejemplo de cómo implementar el algoritmo de Flocking en openFrameworks. El código está dividido en dos partes: una implementación sin hilos y otra con hilos.
 
 **1. Flocking sin Hilos:**
 
-Usa el evento `mouseDragged` para añadir nuevos boids a la simulación. Observa qué ocurre cuando el frame rate a medida que añades más boids.
+Usa el evento `mouseDragged` para añadir nuevos boids a la simulación. Observa qué ocurre con el frame rate a medida que añades más boids.
 
 ```cpp
 // ofApp.h
@@ -517,16 +517,16 @@ void ofApp::exit() {
 
 Analicemos juntos varias partes del código:
 
-- **Flocking sin hilos**: En este enfoque, la simulación de los boids se realiza en el hilo principal. Cada boid actualiza su posición y dibuja su representación gráfica en cada frame. Esto puede llevar a una disminución del rendimiento a medida que se añaden más boids, ya que todo el trabajo se realiza en un solo hilo.
-- **Flocking con hilos**: En este enfoque, la simulación de los boids se realiza en un hilo separado. Esto permite que el hilo principal se encargue de la representación gráfica, mientras que el hilo de la simulación se encarga de actualizar las posiciones de los boids. La sincronización se maneja mediante `lock()` y `unlock()` para evitar condiciones de carrera al acceder a la lista de boids.
+- **Flocking sin hilos**: en este enfoque, la simulación de los boids se realiza en el hilo principal. Cada boid actualiza su posición y dibuja su representación gráfica en cada frame. Esto puede llevar a una disminución del rendimiento a medida que se añaden más boids, ya que todo el trabajo se realiza en un solo hilo.
+- **Flocking con hilos**: en este enfoque, la simulación de los boids se realiza en un hilo separado. Esto permite que el hilo principal se encargue de la representación gráfica, mientras que el hilo de la simulación se encarga de actualizar las posiciones de los boids. La sincronización se maneja mediante `lock()` y `unlock()` para evitar condiciones de carrera al acceder a la lista de boids.
 
 :::note[🧐✍️]
 Observa ambos códigos y responde a las siguientes preguntas:
 
 1. ¿Cuál es la estructura de datos principal que contiene la información de todos los boids y que es accedida por múltiples hilos (el hilo principal para dibujar, el hilo trabajador para actualizar)?
-2. Observa la función `Flock::threadedFunction()` donde el hilo trabajador calculan el movimiento. ¿Qué operaciones realizan sobre el vector de boids compartido? 
-*   Observa la función `ofApp::draw()`. ¿Qué operación realiza sobre el vector compartido?.
-*   Observa `Flock::addBoid()` y `ofApp::mouseDragged()`. ¿Qué operación realizan?.
+2. Observa la función `Flock::threadedFunction()` donde el hilo trabajador calcula el movimiento. ¿Qué operaciones realizan sobre el vector de boids compartido? 
+*   Observa la función `ofApp::draw()`. ¿Qué operación realiza sobre el vector compartido?
+*   Observa `Flock::addBoid()` y `ofApp::mouseDragged()`. ¿Qué operación realizan?
 
 3. Describe un escenario *específico* y *concreto* donde la falta de sincronización podría causar un problema. Por ejemplo:
 
@@ -536,7 +536,7 @@ Observa ambos códigos y responde a las siguientes preguntas:
 
 **Justificación:** para uno de los escenarios problemáticos que describiste arriba, explica cómo las llamadas a `lock()`/`unlock()` en las secciones de código relevantes *evitan* que ocurra ese problema específico.
 
-5. Aunque los locks aseguran la correctitud, ¿Puedes intuir por qué tener muchos hilos esperando para adquirir un lock sobre el mismo vector (alta **contención**) podría limitar el beneficio de rendimiento del paralelismo en este caso?
+5. Aunque los locks aseguran la correctitud, ¿Puedes intuir por qué tener muchos hilos esperando para adquirir un lock sobre el mismo vector (alta **contención**) podría limitar el beneficio de rendimiento del paralelismo en este caso? Justifica tu respuesta.
 :::
 
 En el ejemplo que te di del flocking con hilos, el hilo principal se encarga de dibujar los boids y el hilo secundario se encarga de calcular el movimiento de los boids. Sin embargo, este escenario es muy limitado porque solo hay dos hilos: el principal y el hilo trabajador que calcula el flocking, pero **realmente no se está explotando la idea de tener hilos**. **¿Es correcto esto?**
@@ -545,7 +545,7 @@ En el ejemplo que te di del flocking con hilos, el hilo principal se encarga de 
 Este es un ejercicio mental y de reflexión, no tienes que implementar nada, solo pensar:
 
 Piensa en la pregunta que te acabo de hacer. ¿Qué pasaría si tuviéramos varios hilos que calculan el movimiento de los boids? ¿Cómo podrías implementar esto? ¿Qué problemas crees que podrían surgir? ¿Cómo podrías solucionarlos? 
-
+:::
 
 :::note[🧐🧪✍️]
 - Analiza el código del Flocking sin hilos y el Flocking con hilos. ¿Qué diferencias encuentras? ¿Por qué crees que es importante la sincronización en el segundo caso?

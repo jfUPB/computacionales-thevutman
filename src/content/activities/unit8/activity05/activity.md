@@ -7,7 +7,7 @@ Es hora de aplicar lo aprendido sobre paralelismo. Tomarás el código funcional
 ![Julia set](../../../../assets/JuliaSet.png)
 
 1. Crea un nuevo proyecto de openFrameworks y copia el código de Mandelbrot en su versión paralela.  
-2. Modificar la lógica de cálculo:
+2. Modifica la lógica de cálculo:
 
 *   Localiza la función que calcula el valor de un píxel (ej. `calculateMandelbrotPixel`). Necesitas cambiar su lógica para calcular Julia en lugar de Mandelbrot. ¿Cuál es la diferencia?
     *   **Mandelbrot:** `z = z^2 + c` (donde `c` es la coordenada del píxel, `z` empieza en 0).
@@ -20,7 +20,7 @@ Es hora de aplicar lo aprendido sobre paralelismo. Tomarás el código funcional
         *   Itere usando `z = z * z + k;` (la multiplicación `z*z` requiere manejar números complejos o sus componentes).
         *   El resto (comprobación de escape, conteo de iteraciones) es similar a Mandelbrot.
 
-3. Integra la interacción del mouse:**
+3. Integra la interacción del mouse:
 
 *   Necesitas actualizar la constante `juliaK` basándose en la posición del mouse.
 *   En la función `update()` o en un callback de movimiento del mouse (`mouseMoved`), mapea `mouseX` y `mouseY` a un rango adecuado para las partes real e imaginaria de `k`. Un rango común es de -1.5 a 1.5 para ambos.
