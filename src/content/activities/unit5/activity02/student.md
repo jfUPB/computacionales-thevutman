@@ -70,4 +70,4 @@ Esto demuestra polimorfismo en tiempo de ejecución: se llama al método corresp
 
 #### Dibujo explicativo del polimorfismo en tiempo de ejecución
 
-![Polimorfismo dibujo]()
+![Polimorfismo dibujo](../../../../assets/Actividad5.2.png)
