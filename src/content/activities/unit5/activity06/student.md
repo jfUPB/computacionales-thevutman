@@ -1,0 +1,17 @@
+#### Esta es la solucion de mi actividad ✍️
+---
+
+#### **1. Sobre la dificultad: ¿La unidad fue demasiado fácil, equilibrada o demasiado difícil? ¿Por qué?**
+Considero que la unidad tuvo una dificultad equilibrada, aunque con algunos momentos retadores. Los conceptos como encapsulamiento e incluso herencia se entienden con relativa facilidad si ya se tiene una base, pero el polimorfismo puede ser más difícil de asimilar, sobre todo cuando se combinan vectores de punteros con clases abstractas. Sin embargo, con la guía paso a paso y el código base, fue posible entender e implementar correctamente los conceptos. La dificultad fue adecuada para el nivel del curso.
+
+#### **2. Sobre el ritmo: ¿El tiempo asignado fue adecuado?**
+Sí, el tiempo fue adecuado si se distribuye bien. Sin embargo, para estudiantes con otros cursos exigentes o menos experiencia en programación, puede que necesiten organizarse muy bien o contar con algún refuerzo adicional. Las actividades no son largas por sí solas, pero entender y aplicar correctamente los conceptos sí puede llevar tiempo. En mi caso, logré completarlo dentro del plazo, pero fue clave no dejarlo para última hora.
+
+#### **3. Sobre los materiales: ¿Qué tan útil fue la estructura del curso (enunciados, código base, instrucciones, depuración, etc.)? ¿Cómo se podrían mejorar?**
+La estructura del curso fue muy útil. Tener un código base facilita muchísimo el inicio del trabajo, porque evita que uno se atasque desde el principio con errores técnicos. Los enunciados fueron claros y bien planteados, aunque en algunos momentos hubiera sido útil ver ejemplos visuales más avanzados (por ejemplo, cómo aplicar polimorfismo usando dibujos distintos). Una mejora sería agregar pequeños videos cortos o diagramas que muestren gráficamente la relación entre clases, sobre todo cuando se introducen temas como punteros y métodos virtuales.
+
+#### **4. Sobre la experiencia de aprendizaje: ¿Qué fue lo mejor de esta unidad? ¿Qué te gustaría que se hiciera diferente?**
+Lo mejor de esta unidad fue que todo lo aprendido se aplicó en un proyecto funcional y visual, lo que ayuda a comprender mejor para qué sirven los conceptos. Ver cómo las clases heredan y cómo cada objeto puede comportarse distinto con polimorfismo me dio una visión más clara de cómo funciona la POO. Me gustaría que se hiciera diferente la forma de profundizar los errores comunes, por ejemplo, una sección con “preguntas frecuentes” o “problemas típicos” que suelen ocurrir con herencia o polimorfismo, y cómo solucionarlos.
+
+#### **5. Propuesta de mejora: Si fueras el profesor y tuvieras que mejorar esta unidad para los próximos estudiantes, ¿Qué cambiarías y por qué?**
+Si yo fuera el profesor, agregaría una pequeña fase intermedia de experimentación, donde antes de modificar el caso de estudio, los estudiantes puedan hacer ejercicios cortos enfocados en cada concepto (uno para encapsulamiento, otro para herencia y otro para polimorfismo), como miniproyectos visuales. Esto ayudaría a fijar mejor los conceptos antes de integrarlos en un solo proyecto más complejo. También incluiría una plantilla visual para planear el diseño de clases y cómo se relacionan, antes de codificar.
